@@ -107,7 +107,7 @@ def main():
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=tokenized_ds["train"],
+        train_dataset=tokenized_ds["train"].select(range(1000)),  # Use a subset for faster training
         eval_dataset=tokenized_ds["validation"],
         compute_metrics=compute_metrics,
         callbacks=[ValohaiMetricsCallback()]
@@ -115,7 +115,7 @@ def main():
 
     # Train the model
     trainer.train()
-
+    ##TODO save as alias, conver to onnx
     # Save model and tokenizer
     model.save_pretrained(output_dir.path("models/mbart_sst2"))
     tokenizer.save_pretrained(output_dir.path("models/mbart_sst2"))

@@ -2,3 +2,13 @@
     name: load_data
     image: docker.io/python:3.10
     environment: pro-trial-prod-oci-vm-gpu-a10-1
+    command:
+      - pip install -r requirements.txt
+      - python load_dataset.py {parameters}
+    parameters:
+      - name: dataset
+        type: string
+        default: "stanfordnlp/sst2"
+      - name: tokenizer
+        type: string
+        default: "bert-base-multilingual-cased"

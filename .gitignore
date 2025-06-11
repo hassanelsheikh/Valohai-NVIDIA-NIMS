@@ -1,0 +1,6 @@
+mlruns
+logs
+results
+datasets
+# Ignore Python cache files
+__pycache__/

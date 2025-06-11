@@ -1,0 +1,4 @@
+- step:
+    name: load_data
+    image: docker.io/python:3.10
+    environment: pro-trial-prod-oci-vm-gpu-a10-1
